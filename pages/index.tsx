@@ -6,7 +6,7 @@ import Link from 'next/link'
 const Home: NextPage = () => {
   return (
     <div>
-      <Layout title="Overpay">
+      <Layout title="Sign in | Overpay">
         <div className="flex items-center justify-between">
           <div className="w-full h-full min-h-[1024px]">
             <div className="mt-12 ml-12">

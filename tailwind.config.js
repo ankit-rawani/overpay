@@ -71,7 +71,26 @@ module.exports = {
       xl: '3.125rem',
       full: '9999px'
     },
-    extend: {},
+    extend: {
+      keyframes: {
+          carousel: {
+              '0%': {transform: 'translate(0px)'},
+              '28%': {transform: 'translate(0px)'},
+              '35%': {transform: 'translate(-639px)'},
+              '61%': {transform: 'translate(-639px)'},
+              '68%': {transform: 'translate(-1278px)'},
+              '93%': {transform: 'translate(-1278px)'},
+              '100%': {transform: 'translate(0px)'},
+          },
+          blob: {
+            '0%': {width: '24px', opacity: '1'},
+            '28%': {width: '24px', opacity: '1'},
+            '35%': {width: '6px', opacity: '0.5'},
+            '93%': {width: '6px', opacity: '0.5'},
+            '100%': {width: '24px', opacity: '1'},
+          }
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

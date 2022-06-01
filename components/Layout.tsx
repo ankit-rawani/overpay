@@ -1,4 +1,4 @@
-import { Head } from 'next/document'
+import Head from 'next/head'
 
 const Layout = ({title, children}: {title: string, children: React.ReactNode}) => {
     return (

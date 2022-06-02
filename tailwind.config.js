@@ -44,7 +44,8 @@ module.exports = {
         300: '#e2e8f0',
         200: '#edf2f7',
         100: '#f7fafc',
-        50: '#fafafa'
+        50: '#fafafa',
+        0: '#ffffff'
       }
     },
     fontSize: {

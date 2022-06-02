@@ -53,7 +53,7 @@ const OTPAuth: NextPage = () => {
                         isNumberInput={true}
                         inputClassName="w-[62px] mt-10 border border-grayscale-300 text-grayscale-900 rounded-default p-4 text-center font-semibold text-2xl"
                         />
-                    <button onClick={handleSubmit} className="w-full outline-none hover:bg-primary-400 active:bg-primary-base bg-primary-base text-center py-4 rounded-default mt-10 font-extrabold text-grayscale-0">Send Link</button>
+                    <button onClick={handleSubmit} className="w-full outline-none hover:bg-primary-400 active:bg-primary-base bg-primary-base text-center py-4 rounded-default mt-10 font-extrabold text-grayscale-0">Verify Account</button>
                     <div className="text-center mt-6">
                         <Link href="#"><a>Resend code in <span className="font-extrabold">{time === 0 ? <span>Resend</span> : `00:${time}`}</span></a></Link>
                     </div>

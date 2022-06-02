@@ -2,8 +2,33 @@ import type { NextPage } from 'next'
 import Layout from '../components/Layout'
 import Image from 'next/image'
 import Link from 'next/link'
+import Router from 'next/router'
+import { useState } from 'react'
 
 const Signup: NextPage = () => {
+    const [first, setFirst] = useState("");
+    const [last, setLast] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+
+    const handleSubmit = () => {
+        fetch('/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ firstname: first, lastname: last, email: email, password: password })
+            })
+            .then(res => res.json())
+            .then(res => {
+                if(typeof window !== 'undefined') {
+                    localStorage.setItem("name", res.name);
+                    localStorage.setItem("email", res.email);
+                    Router.push('/otp_auth');
+                }
+        })
+    }
   return (
     <div>
       <Layout title="Sign up | Overpay">
@@ -65,15 +90,15 @@ const Signup: NextPage = () => {
                     <div className="min-w-[125px] w-full h-px bg-grayscale-300"></div>
                 </div>
                 <div className="mt-6 flex">
-                    <input className="w-full border border-grayscale-300 rounded-default p-4" type="text" placeholder="First name" />
-                    <input className="w-full ml-4 border border-grayscale-300 rounded-default p-4" type="text" placeholder="Last name" />
+                    <input onChange={e => setFirst(e.target.value)} value={first} className="w-full border border-grayscale-300 rounded-default p-4" type="text" placeholder="First name" />
+                    <input onChange={e => setLast(e.target.value)} value={last} className="w-full ml-4 border border-grayscale-300 rounded-default p-4" type="text" placeholder="Last name" />
                 </div>
-                <input className="w-full mt-4 border border-grayscale-300 rounded-default p-4" type="text" placeholder="Email" />
-                <input className="w-full mt-4 border border-grayscale-300 rounded-default p-4" type="password" placeholder="Password" />
+                <input onChange={e => setEmail(e.target.value)} value={email} className="w-full mt-4 border border-grayscale-300 rounded-default p-4" type="text" placeholder="Email" />
+                <input onChange={e => setPassword(e.target.value)} value={password} className="w-full mt-4 border border-grayscale-300 rounded-default p-4" type="password" placeholder="Password" />
                 <div className="mt-6 text-grayscale-600 font-medium text-sm">
                     By creating an account, you agreeing to our <span className="text-grayscale-900 font-semibold">Privacy Policy</span>, and <span className="text-grayscale-900 font-semibold">Electronics Communication Policy.</span>
                 </div>
-                <button className="w-full outline-none hover:bg-primary-400 active:bg-primary-base bg-primary-base text-center py-4 rounded-default mt-8 font-extrabold text-grayscale-50">Sign up</button>
+                <button onClick={handleSubmit} className="w-full outline-none hover:bg-primary-400 active:bg-primary-base bg-primary-base text-center py-4 rounded-default mt-8 font-extrabold text-grayscale-50">Sign up</button>
                 <div className="text-center mt-8 font-medium leading-6">Already have an account? <Link href="/"><a className="font-extrabold">Sign in</a></Link></div>
                 </div>
                 <div className="flex text-base leading-6 text-center text-grayscale-600 ml-12 mt-[156px] mr-12 justify-between">

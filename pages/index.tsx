@@ -32,7 +32,7 @@ const Home: NextPage = () => {
                 <div className="flex items-center"><input className="rounded-full h-5 w-5" id="rem-me" type="checkbox" /> <label className="ml-3 font-semibold leading-6" htmlFor="rem-me">Remember me</label></div>
                 <div className="font-semibold leading-6 text-primary-base">Forgot Password?</div>
               </div>
-              <button className="w-full outline-none hover:bg-primary-400 active:bg-primary-base bg-primary-base text-center py-4 rounded-default mt-8 font-extrabold text-grayscale-50">Sign in</button>
+              <button className="w-full outline-none hover:bg-primary-400 active:bg-primary-base bg-primary-base text-center py-4 rounded-default mt-8 font-extrabold text-grayscale-0">Sign in</button>
               <div className="text-center mt-8 font-medium leading-6">Don't have an account? <Link href="/signup"><a className="font-extrabold">Sign up</a></Link></div>
             </div>
             <div className="flex text-base leading-6 text-center text-grayscale-600 ml-12 mt-[156px] mr-12 justify-between">
